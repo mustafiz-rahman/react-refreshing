@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import About from './pages/About';
-import Home from './pages/Home';
+import Notes from './pages/Notes';
+import Create from './pages/Create';
 import {createTheme,ThemeProvider} from '@material-ui/core'
 
 const theme = createTheme({
@@ -18,8 +18,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/notes" element={<Notes />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
