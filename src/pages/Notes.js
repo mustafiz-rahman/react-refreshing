@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Grid } from "@material-ui/core"
-import { Paper } from "@material-ui/core"
 import NoteCard from "../components/NoteCard"
 import { Container } from "@mui/system"
 
@@ -16,7 +15,15 @@ export default function Notes() {
                 console.log(res.data)
             })
 
-    }, [])
+    }, []);
+    const handleDelete= async (id) =>{
+        await axios.delete('http://localhost:8000/notes/'+id);
+
+        const newNotes = notes.filter(note=>note.id!==id)
+
+        setNotes(newNotes);
+
+    }
 
     return (
         <Container>
@@ -24,7 +31,7 @@ export default function Notes() {
             <Grid container spacing={3}>
                 {notes.map(note => (
                     <Grid item key={note.id} xs={12} md={6} lg={4}>
-                        <NoteCard note={note} />
+                        <NoteCard note={note} handleDelete={handleDelete}/>
 
                     </Grid>
                 ))}

@@ -6,13 +6,13 @@ import { IconButton, Typography } from "@material-ui/core";
 import { DeleteOutlined } from "@mui/icons-material";
 
 
-export default function NoteCard({note}){
+export default function NoteCard({note,handleDelete}){
     return(
         <div>
             <Card>
                 <CardHeader
                 action={
-                    <IconButton >
+                    <IconButton onClick={()=>handleDelete(note.id)} >
                         <DeleteOutlined />
                     </IconButton>
                 }
