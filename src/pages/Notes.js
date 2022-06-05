@@ -12,7 +12,7 @@ export default function Notes() {
         axios.get('http://localhost:8000/notes')
             .then((res) => {
                 setNotes(res.data);
-                console.log(res.data)
+                //console.log(res.data)
             })
 
     }, []);
